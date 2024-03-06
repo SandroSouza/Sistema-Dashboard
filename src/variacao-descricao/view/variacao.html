@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div id="container">
+        <div id="sidebar">
+            <div id="menu">
+                <a href="../../../index.html">
+                    <i class="fas fa-home"></i>
+                    Home
+                </a>
+                <a href="../../categoria/view/categoria.html">
+                    <i class="fa-solid fa-tag"></i>
+                    Categorias
+                </a>
+                <a href="#">
+                    <i class="fa-solid fa-layer-group"></i>
+                    Variações
+                </a>
+                <a href="../../loja/view/perfil-loja.html">
+                    <i class="fa-solid fa-shop"></i>
+                    Minha Loja
+                </a>
+                <a href="../../Produto/view/produto.html">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    Produtos
+                </a>
+                <button id="btn-logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Sair
+                </button>
+            </div>
+            <div id="menu-icons">
+                <img src="https://img.icons8.com/material-outlined/48/ffffff/menu--v1.png" alt="Menu Icon" onclick="toggleSidebar()">
+            </div>
+        </div>
+        <div id="content">
+            <h1>Variação do produto</h1>
+            <p>Adicione e controle as variações de cada produto da sua loja</p>
+            
+            <div class="table-header">
+                <!-- Adicione os botões Create e a barra de pesquisa -->
+                <button type="button" id="add-variation-description-btn">Adicionar</button>
+
+
+                <div class="table-search">
+                    <input type="text" id="search" placeholder="Pesquisar...">
+                    <button onclick="" id="buscar">Buscar</button>
+                </div>
+            </div>
+            
+
+            <table class="table-container">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Descrição</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody class="variation-list">
+                </tbody>
+            </table>
+
+            <!-- Modal para adicionar categoria -->
+            <div id="addVariationDescriptionModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" id="close-modal">&times;</span>
+                    <h2>Adicionar Variação Descrição</h2>
+                    <!-- Formulário para adicionar categoria -->
+                    <form id="create-form">
+                        <!-- Adicione os campos do formulário conforme necessário -->
+                        <div class="form-group">
+
+                            <label for="variation-description">Descrição da variação:</label>
+                            <input type="text" id="variation-description" name="descricao" required>
+                        </div>
+                        
+                        <button type="button" class="btn btn-primary" id="save-variation-description-btn">Salvar</button>
+                    </form>
+                </div>
+            </div>
+
+
+            <div id="editVariationDescriptionModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" id="close-modal-edit">&times;</span>
+                    <h2>Editar Categoria</h2>
+                    <!-- Formulário para adicionar categoria -->
+                    <form id="edit-form">
+                        <!-- Adicione os campos do formulário conforme necessário -->
+                        <div class="form-group">
+                            <input class="id-variation-description" type="hidden">
+
+                            <label for="variation-description">Descrição da variação:</label>
+                            <input type="text" id="descricao" name="descricao" required>
+                        </div>
+                        
+                        <button type="button" class="btn btn-primary" id="edit-variation-description-btn">Salvar</button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="viewVariationDescriptionModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" id="close-modal-view">&times;</span>
+                    <h2>Visualizar Categoria</h2>
+                    <!-- Formulário para adicionar categoria -->
+                    <form id="view-form">
+                        <!-- Adicione os campos do formulário conforme necessário -->
+                        <div class="form-group">
+
+                            <label for="variation-description">Descrição da variação:</label>
+                            <input type="text" id="descricao" name="descricao" readonly>
+                        </div>
+                    </form>
+                        
+                    </form>
+                </div>
+            </div>
+
+            <div id="deleteVariationDescriptionModal" class="modal">
+                <div class="modal-content">
+                    <span class="close close-modal-delete">&times;</span>
+                    <h2>Excluir Categoria</h2>
+                    <input class="id-variation-description" type="hidden">
+                    <!-- Formulário para adicionar categoria -->
+                    <button type="button" class="btn btn-primary close-modal-delete">Cancelar</button>
+                    <button type="button" class="btn btn-delete delete-variation-description-btn">Excluir</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    
+    <script src="../../../assets/js/jquery-3.7.1.min.js"></script>
+    <script src="../controller/list.js"></script>
+    <script src="../controller/create.js"></script>
+    <script src="../controller/update.js"></script>
+    <script src="../controller/view.js"></script>
+    <script src="../controller/delete.js"></script>
+    <script src="../../../script.js"></script>
+    <script src="../../usuario/controller/validateUser.js"></script>
+
+</body>
+</html>

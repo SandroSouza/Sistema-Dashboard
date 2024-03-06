@@ -1,0 +1,307 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f9fafb;
+    color: #27272a;
+    overflow: hidden;
+}
+
+#container {
+    display: flex;
+    height: 100vh;
+}
+
+#sidebar {
+    width: 80px;
+    background-color: #27272a;
+    transition: width 0.3s;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#sidebar:hover {
+    width: 250px;
+}
+
+#menu {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#menu a, #menu #btn-logout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 15px;
+    color: #f9fafb;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    text-align: center;
+    opacity: 0;
+    margin: 5px 0;
+    background: none;
+}
+
+#sidebar:hover #menu a, #sidebar:hover #menu #btn-logout {
+    opacity: .8;
+}
+
+#menu a:hover,#menu #btn-logout:hover  {
+    background-color: #3f3f46;
+}
+
+#menu a i, #menu button i {
+    margin: 0 10px;
+}
+
+#content {
+    flex: 1;
+    padding: 20px;
+    transition: margin-left 0.3s;
+    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #27272a;
+}
+
+p {
+    color: #27272a;
+}
+
+#nome-usuario {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#menu-icons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#menu-icons img {
+    width: 40px;
+    margin-bottom: 10px;
+    transition: opacity 0.3s;
+}
+
+#sidebar:hover #menu-icons img {
+    opacity: 0;
+}
+
+.table-container {
+    max-height: 100%;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+.table-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.table-header #search {
+    padding: 10px;
+    outline: none;
+    border: none;
+
+    background-color: #e5e7eb;
+    border: 1px solid #71717a;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ecf0f1;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #161717;
+    color: #ecf0f1;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #d1d5db;
+}
+
+button {
+    padding: 10px;
+    margin-right: 10px;
+    background-color: #3498db;
+    color: #ecf0f1;
+    border: none;
+    cursor: pointer;
+}
+
+
+button:hover {
+    background-color: #2980b9;
+}
+
+.btn-edit {
+    padding: 10px;
+    margin-right: 10px;
+    background-color: #fcd34d;
+    color: #ecf0f1;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-view {
+    padding: 10px;
+    margin-right: 10px;
+    background-color: #3498db;
+    color: #ecf0f1;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-delete {
+    padding: 10px;
+    margin-right: 10px;
+    background-color: #f87171;
+    color: #ecf0f1;
+    border: none;
+    cursor: pointer;
+}
+
+input {
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 150%;
+    max-width: 600px;
+    position: relative;
+    margin: auto;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #f87171;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+}
+
+#create-form .btn-primary {
+    width: 20%;
+    margin: 0 80%;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    width: 1280px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.form-login {
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+}
+
+.form-login h2 {
+    text-align: center;
+}
+
+.form-login button {
+    width: 100%;
+    margin-top: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.dynamicSelect {
+    padding: 12px;
+    margin: 16px 0;
+}
+
+/* Adiciona estilos específicos para a página da loja */
+.loja-info {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #888;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.info-item {
+    margin-bottom: 15px;
+}
+
+.info-item span {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.cor-box {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #888;
+    margin-top: 5px;
+}
+
+.botoes-edicao {
+    margin-top: 20px;
+}
+
+.botoes-edicao button {
+    padding: 10px;
+    background-color: #fcd34d;
+    color: #27272a;
+    border: none;
+    cursor: pointer;
+}
+
+.botoes-edicao button:hover {
+    background-color: #e1cc6c;
+}

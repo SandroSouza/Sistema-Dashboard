@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Cadastro de Loja</title>
+</head>
+<body>
+<div class="container">
+    <form id="create-form">
+            <h2>Cadastro de Loja</h2>
+            <label for="storeName">Nome da Loja:</label>
+            <input type="text" id="nome" name="nome" required>
+            
+            <label for="logo">Logo:</label>
+            <input type="text" id="logo" name="logo" required>
+            
+            <label for="banner">Banner:</label>
+            <input type="text" id="banner" name="banner" required>
+            
+            <label for="productQuantity">Quantidade de Produtos:</label>
+            <input type="number" id="qtdproduto" name="qtdproduto" required>
+            
+            <label for="backgroundColor">Cor de Fundo:</label>
+            <input type="color" id="corfundo" name="corfundo" required>
+            
+            <label for="fontColor">Cor da Fonte:</label>
+            <input type="color" id="corfonte" name="corfonte" required>
+            
+            <label for="area">Área:</label>
+            <input type="text" id="area" name="area" required>
+            
+            <label for="cnpj">CNPJ:</label>
+            <input type="text" id="cnpj" name="cnpj" required>
+            
+            <label for="userId">ID do Usuário Dono:</label>
+            <input type="text" id="idUsuario" name="idUsuario" required>
+            
+            <button type="button" id="save-loja-btn">Cadastrar</button>
+    </form>
+</div>
+
+    <script src="../../../assets/js/jquery-3.7.1.min.js"></script>
+    <script src="../controller/create.js"></script>
+</body>
+</html>

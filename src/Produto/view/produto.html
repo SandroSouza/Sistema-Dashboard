@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div id="container">
+        <div id="sidebar">
+            <div id="menu">
+                <a href="../../../index.html">
+                    <i class="fas fa-home"></i>
+                    Home
+                </a>
+                <a href="../../categoria/view/categoria.html">
+                    <i class="fa-solid fa-tag"></i>
+                    Categorias
+                </a>
+                <a href="../../variacao-descricao/view/variacao.html">
+                    <i class="fa-solid fa-layer-group"></i>
+                    Variações
+                </a>
+                <a href="#">
+                    <i class="fa-solid fa-shop"></i>
+                    Minha Loja
+                </a>
+                <a href="#">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    Produto
+                </a>
+                <button id="btn-logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Sair
+                </button>
+            </div>
+            <div id="menu-icons">
+                <img src="https://img.icons8.com/material-outlined/48/ffffff/menu--v1.png" alt="Menu Icon" onclick="toggleSidebar()">
+            </div>
+        </div>
+        <div id="content">
+            <h1>Produtos</h1>
+            <p>Adicione e controle os produtos da sua loja</p>
+            
+            <div class="table-header">
+                <!-- Adicione os botões Create e a barra de pesquisa -->
+                <button type="button" id="add-produt-btn">Adicionar</button>
+
+
+                <div class="table-search">
+                    <input type="text" id="search" placeholder="Pesquisar...">
+                    <button onclick="" id="buscar">Buscar</button>
+                </div>
+            </div>
+            
+
+            <table class="table-container">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Quantidade</th>
+                        <th>Valor</th>
+                        <th>Modelo</th>
+                        <th>Variação1</th>
+                        <th>Variação2</th>
+                        <th>Loja</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody class="produt-list">
+                </tbody>
+            </table>
+
+            <!-- Modal para adicionar produtos<label for="categoryName">Nome da Categoria:</label>
+                            <input type="text" id="idv1" name="idv1" required> -->
+            <div id="addProdutModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" id="close-modal">&times;</span>
+                    <h2>Adicionar Produtos</h2>
+                    <!-- Formulário para adicionar categoria -->
+                    <form id="create-form">
+                        <!-- Adicione os campos do formulário conforme necessário -->
+                        <div class="form-group">
+                            <label for="categoryName">Quantidade do produto:</label>
+                            <input type="text" id="qtde" name="qtde" required>
+
+                            <label for="categoryName">Valor do Produto:</label>
+                            <input type="text" id="valor" name="valor" required>
+
+                            <label for="categoryName">Modelo do Produto:</label>
+                            <input type="text" id="modelo" name="modelo" required>
+
+                            <label for="categoryName">Id da variação 1:</label>
+                            <input type="text" id="idv1" name="idv1" required>
+
+                            <label for="categoryName">Id da variação 2:</label>
+                            <input type="text" id="idv2" name="idv2" required>
+
+                            <label for="categoryDescription">Id da loja:</label>
+                            <input type="text" id="idloja" name="idloja" required>
+                        </div>
+                        
+                        <button type="button" class="btn btn-primary" id="save-produt-btn">Salvar</button>
+                    </form>
+                </div>
+            </div>
+
+
+            <div id="editProdutModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" id="close-modal-edit">&times;</span>
+                    <h2>Editar Produtos</h2>
+                    <!-- Formulário para adicionar categoria -->
+                    <form id="edit-form">
+                        <!-- Adicione os campos do formulário conforme necessário -->
+                        <div class="form-group">
+                            <input class="id-produt" type="hidden">
+                            
+                            <label for="productName">Quantidade do produto:</label>
+                            <input type="text" id="qtde" name="qtde" required>
+
+                            <label for="productName">Valor do Produto:</label>
+                            <input type="text" id="valor" name="valor" required>
+
+                            <label for="productName">Modelo do Produto:</label>
+                            <input type="text" id="modelo" name="modelo" required>
+
+                            <label for="categoryName">Id da variação 1:</label>
+                            <input type="text" id="idv1" name="idv1" required>
+
+                            <label for="categoryName">Id da variação 2:</label>
+                            <input type="text" id="idv2" name="idv2" required>
+
+                            <label for="categoryDescription">Id da loja:</label>
+                            <input type="text" id="idloja" name="idloja" required>
+                        </div>
+                        
+                        <button type="button" class="btn btn-primary edit-produt-btn">Salvar</button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="viewProdutModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" id="close-modal-view">&times;</span>
+                    <h2>Visualizar Produto</h2>
+                    <!-- Formulário para adicionar categoria -->
+                    <form id="view-form">
+                        <!-- Adicione os campos do formulário conforme necessário -->
+                        <div class="form-group">
+                            <label for="categoryName">Quantidade do produto:</label>
+                            <input type="text" id="qtde" name="qtde" required>
+
+                            <label for="categoryName">Valor do Produto:</label>
+                            <input type="text" id="valor" name="valor" required>
+
+                            <label for="categoryName">Modelo do Produto:</label>
+                            <input type="text" id="modelo" name="modelo" required>
+
+                            <label for="categoryName">Id da variação 1:</label>
+                            <input type="text" id="idv1" name="idv1" required>
+
+                            <label for="categoryName">Id da variação 2:</label>
+                            <input type="text" id="idv2" name="idv2" required>
+
+                            <label for="categoryDescription">Id da loja:</label>
+                            <input type="text" id="idloja" name="idloja" required>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+
+            <div id="deleteProdutModal" class="modal">
+                <div class="modal-content">
+                    <span class="close close-modal-delete">&times;</span>
+                    <h2>Excluir Produt</h2>
+                    <input class="id-produt" type="hidden">
+                    <!-- Formulário para adicionar categoria -->
+                    <button type="button" class="btn btn-primary close-modal-delete">Cancelar</button>
+                    <button type="button" class="btn btn-delete delete-produt-btn">Excluir</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    
+    <script src="../../../assets/js/jquery-3.7.1.min.js"></script>
+    <script src="../controller/list.js"></script>
+    <script src="../controller/create.js"></script>
+    <script src="../controller/update.js"></script>
+    <script src="../controller/view.js"></script>
+    <script src="../controller/delete.js"></script>
+    <script src="../../../script.js"></script>
+
+</body>
+</html>
